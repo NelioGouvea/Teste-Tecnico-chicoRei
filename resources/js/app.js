@@ -19,7 +19,9 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('products', require('./components/Products.vue').default);
+/* import the fontawesome core */
+
+Vue.component('list', require('./components/List.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

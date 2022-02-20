@@ -20,31 +20,8 @@
 
 <body>
     <div id="app">
-        <div class="container">
-            <div class="card-deck pt-4">
-                <products
-                    title = "Camiseta o Auto da Compadecida"
-                    :price = "69.90"
-                    img = "https://chicorei.imgix.net/623/bb46c280-bfb3-11eb-8e1d-79f480106555.jpg?auto=compress,format&q=65&w=531&h=750&fit=crop&crop=top&markpad=0&mark=https%3A%2F%2Fchico-rei.imgix.net%2Fimages%2Fsite%2Fproduct%2Fselo-desgaste.png%3Fauto%3Dformat%26w%3D0.60"
-                />
-                <products
-                    title = "Camiseta o Auto da Compadecida"
-                    :price = "69.90"
-                    img = "https://chicorei.imgix.net/623/bb46c280-bfb3-11eb-8e1d-79f480106555.jpg?auto=compress,format&q=65&w=531&h=750&fit=crop&crop=top&markpad=0&mark=https%3A%2F%2Fchico-rei.imgix.net%2Fimages%2Fsite%2Fproduct%2Fselo-desgaste.png%3Fauto%3Dformat%26w%3D0.60"
-                />
-                <products
-                    title = "Camiseta o Auto da Compadecida"
-                    :price = "69.90"
-                    img = "https://chicorei.imgix.net/623/bb46c280-bfb3-11eb-8e1d-79f480106555.jpg?auto=compress,format&q=65&w=531&h=750&fit=crop&crop=top&markpad=0&mark=https%3A%2F%2Fchico-rei.imgix.net%2Fimages%2Fsite%2Fproduct%2Fselo-desgaste.png%3Fauto%3Dformat%26w%3D0.60"
-                />
-                <products
-                    title = "Camiseta o Auto da Compadecida"
-                    :price = "69.90"
-                    img = "https://chicorei.imgix.net/623/bb46c280-bfb3-11eb-8e1d-79f480106555.jpg?auto=compress,format&q=65&w=531&h=750&fit=crop&crop=top&markpad=0&mark=https%3A%2F%2Fchico-rei.imgix.net%2Fimages%2Fsite%2Fproduct%2Fselo-desgaste.png%3Fauto%3Dformat%26w%3D0.60"
-                />
-            </div>
-        </div>
-    </div>   
+        <list />
+    </div> 
 
 
 
