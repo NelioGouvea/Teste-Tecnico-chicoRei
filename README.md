@@ -27,7 +27,6 @@ Digite no seu terminal os seguintes comandos para instalar as dependências
 Agora para rodar o projeto os comandos abaixo:
 ```sh
   php artisan key:generate
-  php artisan migrate
 ```
   
 Finalmente para iniciar o servidor local e ver o resultado rode o seguinte comando
