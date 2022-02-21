@@ -1,5 +1,5 @@
 <template>
-    <div class="card space" style="width: 18rem; ">
+    <div class="card space" style="width: 18rem; backgroud-color: #FFFFFF">
         <img class="card-img-top" alt="Camiseta" :src="img">
         <div class="card-body">
             <h6 class="card-text">{{ title }}</h6>
@@ -18,11 +18,11 @@
 <script>
     export default {
     props: {
-            title: String,
-            price: Number,
-            img: String,
-            type: String,
-        },
+        title: String,
+        price: Number,
+        img: String,
+        type: String,
+    },
     name: "Product",
     };
 </script>

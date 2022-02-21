@@ -5354,6 +5354,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 var axios = (__webpack_require__(/*! axios */ "./node_modules/axios/index.js")["default"]);
@@ -5363,8 +5379,8 @@ var options = {
   url: 'https://scrapingant.p.rapidapi.com/post',
   headers: {
     'content-type': 'application/json',
-    'x-rapidapi-host': 'scrapingant.p.rapidapi.com',
-    'x-rapidapi-key': 'd55ae156e8msh502c96128bcc8b2p159ab2jsnc645559c46b0'
+    'x-rapidapi-host': "scrapingant.p.rapidapi.com",
+    'x-rapidapi-key': "d55ae156e8msh502c96128bcc8b2p159ab2jsnc645559c46b0"
   },
   data: {
     cookies: 'cookie_name_1=cookie_value_1;cookie_name_2=cookie_value_2',
@@ -5380,10 +5396,12 @@ var options = {
       evenProductsList: [],
       pageOfItems: 1,
       group: 8,
-      tam: 0,
       products: [],
       types: [],
-      firtsLoad: 0
+      genders: [],
+      gender: "",
+      loading: true,
+      tam: 0
     };
   },
   components: {
@@ -5393,23 +5411,47 @@ var options = {
     pagination: function pagination() {
       var pageOfItems = this.pageOfItems;
       var group = this.group;
-      var i = 0;
-      this.evenProductsList = this.evenProductsList.filter(function (value) {
-        i++;
-        return i > (pageOfItems - 1) * group && i <= pageOfItems * group;
-      });
+      this.evenProductsList = this.evenProductsList.slice((pageOfItems - 1) * group, pageOfItems * group);
       if (pageOfItems > this.totalPages) this.onChangePage(1);
     },
     evenProducts: function evenProducts() {
       name = this.name;
-      var i = 0;
+
+      if (name !== "") {
+        this.evenProductsList = this.products.filter(function (value) {
+          return value.type.name === name;
+        });
+      } else {
+        this.evenProductsList = this.products;
+      }
+
+      this.pagination();
+    },
+    genderFilter: function genderFilter() {
+      var search = "";
+      name = this.name;
+
+      switch (name) {
+        case "Infantil":
+          search = "I";
+          break;
+
+        case "Masculino":
+          search = "M";
+          break;
+
+        case "Feminino":
+          search = "F";
+          break;
+
+        default:
+          return this.evenProductsList;
+          break;
+      }
+
       this.evenProductsList = this.products.filter(function (value) {
-        if (value.type.name === name || name === "") {
-          i++;
-          return true;
-        } else return false;
+        return value.img_cover_gender === search;
       });
-      this.tam = i;
       this.pagination();
     },
     onChangePage: function onChangePage(pageOfItems) {
@@ -5420,7 +5462,11 @@ var options = {
   },
   computed: {
     totalPages: function totalPages() {
-      if (this.tam !== 0) return Math.ceil(this.tam / this.group);else return Math.ceil(this.products.length / this.group);
+      if (this.tam !== 0) {
+        return Math.ceil(this.tam / this.ofset);
+      } else {
+        return Math.ceil(this.products.length / this.ofset);
+      }
     }
   },
   mounted: function mounted() {
@@ -5443,16 +5489,17 @@ var options = {
               response = _context.sent;
               result = response.substring(response.lastIndexOf('{"state":"vueProducts"'), response.indexOf(";var popListener=function(event)"));
               request = JSON.parse(result);
-              console.log(request.products.types);
+              console.log(request);
               _this.products = request.products.hits;
               _this.types = request.filters.types;
+              _this.genders = request.filters.genders;
               _this.evenProductsList = _this.products;
 
               _this.pagination();
 
-              _this.firtsLoad = 1;
+              _this.loading = false;
 
-            case 11:
+            case 12:
             case "end":
               return _context.stop();
           }
@@ -10623,7 +10670,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.filter{\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\r\n    padding: 5px;\n}\nselect{\r\n  cursor: pointer;\r\n  border-radius: 3px;\r\n  padding: 3px;\r\n  background-color: white;\n}\nselect:hover{\r\n  background-color: #orange;\n}\n.products{\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: space-around;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.filter {\r\n    display: flex;\r\n    justify-content: center;\r\n    flex-wrap: wrap;\r\n    padding: 5px;\n}\nselect {\r\n    cursor: pointer;\r\n    border-radius: 3px;\r\n    padding: 3px;\r\n    background-color: white;\n}\nselect:hover {\r\n    background-color: #orange;\n}\n.products {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29444,51 +29491,117 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "main" }, [
     _c("div", { staticClass: "filter" }, [
-      _c("div", { staticClass: "filter-center" }, [
-        _c("label", [_vm._v("Tipos:")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.name,
-                expression: "name",
-              },
-            ],
-            on: {
-              change: [
-                function ($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function (o) {
-                      return o.selected
-                    })
-                    .map(function (o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.name = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                _vm.evenProducts,
-              ],
-            },
-          },
+      _c(
+        "div",
+        [
           [
-            _c("option", { attrs: { value: "" } }, [_vm._v("Todos")]),
+            _c("label", [_vm._v("Tipos:")]),
             _vm._v(" "),
-            _vm._l(_vm.types, function (type) {
-              return _c("option", { domProps: { value: type.name } }, [
-                _vm._v(_vm._s(type.name)),
-              ])
-            }),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.name,
+                    expression: "name",
+                  },
+                ],
+                on: {
+                  change: [
+                    function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.name = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.evenProducts,
+                  ],
+                },
+              },
+              [
+                _c("option", { attrs: { value: "" } }, [_vm._v("Todos")]),
+                _vm._v(" "),
+                _vm._l(_vm.types, function (type) {
+                  return _c("option", { domProps: { value: type.name } }, [
+                    _vm._v(
+                      "\n                      " +
+                        _vm._s(type.name) +
+                        "\n                  "
+                    ),
+                  ])
+                }),
+              ],
+              2
+            ),
           ],
-          2
-        ),
-      ]),
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          [
+            _c("label", [_vm._v("Genêro:")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.name,
+                    expression: "name",
+                  },
+                ],
+                on: {
+                  change: [
+                    function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.name = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.genderFilter,
+                  ],
+                },
+              },
+              [
+                _c("option", { attrs: { value: "" } }, [_vm._v("Todos")]),
+                _vm._v(" "),
+                _vm._l(_vm.genders, function (gender) {
+                  return _c("option", { domProps: { value: gender.name } }, [
+                    _vm._v(
+                      "\n                      " +
+                        _vm._s(gender.name) +
+                        "\n                  "
+                    ),
+                  ])
+                }),
+              ],
+              2
+            ),
+          ],
+        ],
+        2
+      ),
     ]),
     _vm._v(" "),
     _c(
@@ -29496,14 +29609,12 @@ var render = function () {
       { staticClass: "container products" },
       [
         [
-          _vm.firtsLoad === 0
+          _vm.loading
             ? _c("p", [
                 _vm._v("Estamos procurando nossos produtos para você..."),
               ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.evenProductsList.length === 0 && _vm.firtsLoad !== 0
-            ? _c("p", [_vm._v("Nenhum resultado encontrado")])
+            : _vm.evenProductsList.length === 0
+            ? _c("p", [_vm._v("Nenhum produtos encontrado")])
             : _vm._e(),
           _vm._v(" "),
           _vm._l(this.evenProductsList, function (product) {
@@ -29546,7 +29657,13 @@ var render = function () {
                             },
                           },
                         },
-                        [_vm._v("\n          " + _vm._s(page) + "\n        ")]
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(page) +
+                              "\n                "
+                          ),
+                        ]
                       ),
                     ]
                   : [
@@ -29560,7 +29677,13 @@ var render = function () {
                             },
                           },
                         },
-                        [_vm._v("\n          " + _vm._s(page) + "\n        ")]
+                        [
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(page) +
+                              "\n                "
+                          ),
+                        ]
                       ),
                     ],
               ]
@@ -29596,7 +29719,10 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "card space", staticStyle: { width: "18rem" } },
+    {
+      staticClass: "card space",
+      staticStyle: { width: "18rem", "backgroud-color": "#FFFFFF" },
+    },
     [
       _c("img", {
         staticClass: "card-img-top",
