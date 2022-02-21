@@ -1,5 +1,5 @@
 # Teste-Tecnico-chicoRei
-Desenvolvimento de um desafio para teste técnico da vaga de FullStack Developer Jr 
+Desenvolvimento de um desafio para teste técnico da vaga de FullStack Developer Jr na Chico Rei
 
 ## Tecnologias Utilizadas
 - Laravel
@@ -17,7 +17,7 @@ Clone o repositório utilizando o comando
 Inicalmente renomeie o arquivo .env.example para .env e altere/preencha os dados do nome do database, usuário e senha
 E também lembre-se de inserir a key e o host da api ao final do documento.
 
-##Instalções Necessárias
+## Instalações Necessárias
 Digite no seu terminal os seguintes comandos para instalar as dependências
 ```sh
   composer install
