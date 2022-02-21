@@ -1,43 +1,18 @@
-<style>
-.filter {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 5px;
-}
-
-select {
-    cursor: pointer;
-    border-radius: 3px;
-    padding: 5px;
-    background-color: white;
-}
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-</style>
-
 <template>
     <div class="main">
         <div class="filter">
             <div>
                 <label>Tipos:</label>
-                <select v-model="name" v-on:change="typesFilter">
+                <select class="bg-dark text-white"v-model="name" v-on:change="typesFilter">
                     <option value="">Todos</option>
-                    <option v-for="type in types" :value="type.name">
-                        {{ type.name }}
-                    </option>
+                    <option v-for="type in types" :value="type.name">{{ type.name }}</option>
                 </select>
             </div>
             <div>
               <label>Genêro:</label>
-                <select v-model="name" v-on:change="gendersFilter">
+                <select class="bg-dark text-white" v-model="name" v-on:change="gendersFilter">
                     <option value="">Todos</option>
-                    <option v-for="gender in genders" :value="gender.name">
-                        {{ gender.name }}
-                    </option>
+                    <option v-for="gender in genders" :value="gender.name">{{ gender.name }}</option>
                 </select>
             </div>
         </div>
@@ -62,7 +37,7 @@ select {
         </div>
         <div class="pagination justify-content-center pb-3">
             <template v-if="listProducts.length !== 0 && pageOfItems >= 2">
-              <button class="page-link" v-on:click="previousPage()">&laquo;</button>
+              <button class="page-link bg-light text-dark m-1" v-on:click="previousPage()">< Anterior</button>
             </template>
             <template
                 class="page-item"
@@ -70,14 +45,14 @@ select {
                 v-if="listProducts.length !== 0"
             >           
                 <template v-if="pageOfItems === page">
-                    <button class="page-link bg-primary text-white" v-on:click="onChangePage(page)">{{ page }}</button>
+                    <button class="page-link bg-light text-dark m-1" v-on:click="onChangePage(page)">{{ page }}</button>
                 </template>
                 <template v-else>
-                    <button class="page-link" v-on:click="onChangePage(page)">{{ page }}</button>
+                    <button class="page-link bg-light text-dark m-1" v-on:click="onChangePage(page)">{{ page }}</button>
                 </template>
             </template>
-            <template v-if="pageOfItems <= 4 && listProducts.length !== 0">
-              <button class="page-link" v-on:click="nextPage()">&raquo;</button>
+            <template v-if="pageOfItems < 3 && listProducts.length !== 0">
+              <button class="page-link bg-light text-dark m-1" v-on:click="nextPage()">Próxima ></button>
             </template>
         </div>
     </div>
@@ -110,7 +85,7 @@ export default {
       name: "",
       listProducts: [],
       pageOfItems: 1,
-      group: 8,
+      group: 12,
       products: [],
       types: [],
       loading: true,

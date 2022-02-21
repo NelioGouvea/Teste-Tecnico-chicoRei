@@ -20,6 +20,10 @@
 
 <body>
     <div id="app">
+        <div class="barra">
+
+        </div>
+        <navbar></navbar>
         <list />
     </div> 
 

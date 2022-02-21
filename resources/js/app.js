@@ -22,6 +22,7 @@ window.Vue = require('vue').default;
 /* import the fontawesome core */
 
 Vue.component('list', require('./components/List.vue').default);
+Vue.component('navbar', require('./components/Navbar.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
