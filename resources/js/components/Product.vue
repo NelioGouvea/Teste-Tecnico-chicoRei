@@ -1,5 +1,5 @@
 <template>
-    <div class="card space" style="width: 18rem; backgroud-color: #FFFFFF">
+    <div class="card mb-3" style="width: 18rem;">
         <img class="card-img-top" alt="Camiseta" :src="img">
         <div class="card-body">
             <h6 class="card-text">{{ title }}</h6>
@@ -8,12 +8,6 @@
         </div>
     </div>
 </template>
-
-<style>
-.space{
-    margin-bottom: 10px;
-}
-</style>
 
 <script>
     export default {
