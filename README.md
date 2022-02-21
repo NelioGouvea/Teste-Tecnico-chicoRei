@@ -12,7 +12,7 @@ Desenvolvimento de um desafio para teste técnico da vaga de FullStack Developer
 ## Startando o Projeto
 Clone o repositório utilizando o comando 
 ```sh
-  git clone https://github.com/NelioGouvea/Teste-Tecnico-chicoRei.git
+  git clone https://github.com/NelioGouvea/technical-test.git
 ```  
 Inicalmente renomeie o arquivo .env.example para .env e altere/preencha os dados do nome do database, usuário e senha
 E também lembre-se de inserir a key e o host da api ao final do documento.
