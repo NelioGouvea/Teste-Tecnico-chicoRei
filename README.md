@@ -13,7 +13,7 @@ Clone o repositório utilizando o comando
   git clone https://github.com/NelioGouvea/technical-test.git
 ```  
 Inicalmente renomeie o arquivo .env.example para .env e altere/preencha os dados do nome do database, usuário e senha
-E também lembre-se de inserir a key e o host da api ao final do documento.
+E também lembre-se de inserir a key da api ao final do documento.
 
 ## Instalações Necessárias
 Digite no seu terminal os seguintes comandos para instalar as dependências
