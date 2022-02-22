@@ -27851,10 +27851,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
+/***/ "./resources/css/app.css":
+/*!*******************************!*\
+  !*** ./resources/css/app.css ***!
+  \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -29037,8 +29037,8 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "main" }, [
-    _c("div", { staticClass: "filter" }, [
-      _c("div", [
+    _c("div", { staticClass: "filter mb-2" }, [
+      _c("div", { staticStyle: { "margin-right": "15px" } }, [
         _c("label", [_vm._v("Tipos:")]),
         _vm._v(" "),
         _c(
@@ -29282,89 +29282,92 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "centralize" }, [
-      _c("nav", { staticClass: "navbar navbar-expand-lg" }, [
-        _c("img", {
-          staticClass: "img ",
-          attrs: {
-            src: "https://www.cupomvalido.com.br/wp-content/uploads/chico-rei-logo.png",
-            alt: "logo",
-          },
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "navbar-toggler",
+      _c(
+        "nav",
+        { staticClass: "navbar navbar-expand-lg align-content-center" },
+        [
+          _c("img", {
+            staticClass: "img ",
             attrs: {
-              type: "button",
-              "data-toggle": "collapse",
-              "data-target": "#navbarSupportedContent",
-              "aria-controls": "navbarSupportedContent",
-              "aria-expanded": "false",
-              "aria-label": "Toggle navigation",
+              src: "https://www.cupomvalido.com.br/wp-content/uploads/chico-rei-logo.png",
+              alt: "logo",
             },
-          },
-          [_c("span", { staticClass: "navbar-toggler-icon" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "collapse navbar-collapse",
-            attrs: { id: "navbarSupportedContent" },
-          },
-          [
-            _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
-              _c("input", {
-                staticClass: "form-control mr-sm-2",
-                staticStyle: { width: "38rem" },
-                attrs: {
-                  type: "search",
-                  placeholder: "O que você precisa ?",
-                  "aria-label": "Search",
-                },
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-outline-dark",
-                  attrs: { type: "submit" },
-                },
-                [_vm._v("Procurar")]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "navbar-nav mr-auto" }, [
-              _c("li", { staticClass: "nav-item active" }, [
-                _c("strong", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link active text-dark",
-                      attrs: { href: "#" },
-                    },
-                    [_vm._v("Entre ou Cadastre-se ")]
-                  ),
-                ]),
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "navbar-toggler bg-dark",
+              attrs: {
+                type: "button",
+                "data-toggle": "collapse",
+                "data-target": "#navbarSupportedContent",
+                "aria-controls": "navbarSupportedContent",
+                "aria-expanded": "false",
+                "aria-label": "Toggle navigation",
+              },
+            },
+            [_c("span", { staticClass: "text-light" }, [_vm._v("≡")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "collapse navbar-collapse",
+              attrs: { id: "navbarSupportedContent" },
+            },
+            [
+              _c("form", { staticClass: "form-inline my-2 my-lg-0" }, [
+                _c("input", {
+                  staticClass: "form-control mr-sm-2 search-bar",
+                  attrs: {
+                    type: "search",
+                    placeholder: "O que você precisa ?",
+                    "aria-label": "Search",
+                  },
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-dark",
+                    attrs: { type: "submit" },
+                  },
+                  [_vm._v("Procurar")]
+                ),
               ]),
               _vm._v(" "),
-              _c("li", { staticClass: "nav-item active" }, [
-                _c("strong", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link active text-dark",
-                      attrs: { href: "#" },
-                    },
-                    [_vm._v("Sua Sacola ")]
-                  ),
+              _c("ul", { staticClass: "navbar-nav mr-auto" }, [
+                _c("li", { staticClass: "nav-item active" }, [
+                  _c("strong", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link active text-dark",
+                        attrs: { href: "#" },
+                      },
+                      [_vm._v("Entre ou Cadastre-se ")]
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("li", { staticClass: "nav-item active" }, [
+                  _c("strong", [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link active text-dark",
+                        attrs: { href: "#" },
+                      },
+                      [_vm._v("Sua Sacola ")]
+                    ),
+                  ]),
                 ]),
               ]),
-            ]),
-          ]
-        ),
-      ]),
+            ]
+          ),
+        ]
+      ),
     ])
   },
 ]
@@ -41776,7 +41779,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
